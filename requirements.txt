@@ -1,0 +1,4 @@
+# requirements.txt
+python-dotenv==0.19.2  # Replace with the actual version you are using
+requests==2.26.0       # Replace with the actual version you are using
+sqlalchemy==1.4.27     # Replace with the actual version you are using
