@@ -1,8 +1,9 @@
 import requests
-from sqlalchemy import create_engine, Column, String, Integer, DateTime, MetaData, Table, exc
+from sqlalchemy import create_engine, Column, String, Integer, DateTime, MetaData, Table
 from datetime import datetime
 from dotenv import load_dotenv
 import os
+from security import safe_requests
 
 # Load environment variables from .env file
 load_dotenv()
@@ -44,7 +45,7 @@ metadata.create_all(engine)
 # API interaction functions
 def get_api_data(url, params):
     try:
-        response = requests.get(url, params=params)
+        response = safe_requests.get(url, params=params)
         response.raise_for_status()
         return response.json()
     except requests.RequestException as e:
