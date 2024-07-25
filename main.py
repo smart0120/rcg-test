@@ -44,7 +44,7 @@ metadata.create_all(engine)
 # API interaction functions
 def get_api_data(url, params):
     try:
-        response = requests.get(url, params=params)
+        response = requests.get(url, params=params, timeout=60)
         response.raise_for_status()
         return response.json()
     except requests.RequestException as e:
